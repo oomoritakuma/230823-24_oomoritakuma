@@ -31,12 +31,18 @@ public class TodoController {
 
     @RequestMapping(value="/add")
     public String add(Todo todo) {
+    	if(todo.getCategory()=="") {
+    		todo.setCategory("なし");
+    	}
         todoMapper.add(todo);
         return "redirect:/";
     }
 
     @RequestMapping(value="/update")
     public String update(Todo todo) {
+    	if(todo.getCategory()=="") {
+    		todo.setCategory("なし");
+    	}
         todoMapper.update(todo);
         return "redirect:/";
     }
